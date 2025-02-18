@@ -7,6 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
@@ -15,6 +16,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Vibrant blue glow */
     width: 300px;
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .container:hover {
@@ -63,6 +65,7 @@ input[type="time"]::-webkit-datetime-edit {
 input:focus, select:focus, textarea:focus {
     border-color: #007bff; /* Vibrant blue border */
     outline: none;
+    background-color: #1a1a1a; /* Ensure background color stays the same */
 }
 
 button {
@@ -94,6 +97,23 @@ button:hover {
     font-style: italic;
 }
 
+#notificationBar {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    right: 0;
+    background-color: #007bff; /* Vibrant blue */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    transition: top 0.5s ease;
+}
+
+#notificationBar.show {
+    top: 0;
+}
+
 a {
     color: gray;
     text-decoration: none;
@@ -102,4 +122,46 @@ a {
 a:hover {
     color: blue;
     text-decoration: underline;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+    .container {
+        width: 90%; /* Make container width responsive */
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Smaller heading for smaller screens */
+    }
+
+    input, select, textarea {
+        font-size: 14px; /* Smaller font size for smaller screens */
+        padding: 8px; /* Smaller padding for smaller screens */
+    }
+
+    button {
+        font-size: 14px; /* Smaller font size for smaller screens */
+        padding: 8px; /* Smaller padding for smaller screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 10px; /* Further reduce padding for very small screens */
+    }
+
+    h2 {
+        font-size: 1.3em; /* Smaller heading for very small screens */
+    }
+
+    input, select, textarea {
+        font-size: 12px; /* Smaller font size for very small screens */
+        padding: 6px; /* Smaller padding for very small screens */
+    }
+
+    button {
+        font-size: 12px; /* Smaller font size for very small screens */
+        padding: 6px; /* Smaller padding for very small screens */
+    }
 }

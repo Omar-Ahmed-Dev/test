@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <script src="login.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h2>Register your data</h2>
-        <form id="registrationForm" action="/submit_registration" method="post">
+        <form id="registrationForm" action="After registration.html" method="post" onsubmit="return validateForm(event)">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
@@ -23,7 +23,7 @@
             <label for="confirm_password">Confirm Password:</label>
             <input type="password" id="confirm_password" name="confirm_password" required>
 
-            <label for="registration_time">My favorite time to exercise:</label>
+            <label for="registration_time">Preferred Registration Time:</label>
             <input type="time" id="registration_time" name="registration_time" required>
 
             <label for="weight">Weight:</label>
@@ -43,7 +43,9 @@
         </form>
         <div id="confirmationMessage" class="hidden">
             <p>Registration successful!</p>
+            <button id="afterRegistrationButton" class="hidden" onclick="redirectToAfterRegistration()">Go to After Registration Page</button>
         </div>
+        <div id="notificationBar" class="hidden">Registration successful!</div>
         <p> <a href="index.html">Welcome page</a></p>
     </div>
 </body>
