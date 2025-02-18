@@ -7,112 +7,56 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden; /* Prevent horizontal scrolling */
+    flex-direction: column;
+    position: relative;
+    padding: 20px; /* Add padding for smaller screens */
 }
 
-.container {
-    background-color: #333333; /* Dark grey for container */
-    padding: 20px;
+.social-icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px; /* Increased gap between icons */
+}
+
+.social-icon {
+    color: white;
+    font-size: 2em; /* Increased font size */
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #007bff; /* Vibrant blue on hover */
+}
+
+.banner {
+    background-color: #333333; /* Dark grey for banner */
+    color: white;
+    text-align: center;
+    padding: 20px; /* Reduced padding */
+    font-size: 1.5em; /* Adjusted font size */
+    transition: background-color 0.3s, box-shadow 0.3s;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Vibrant blue glow */
-    width: 300px;
-    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    position: relative;
+    animation: moveUpDown 1s infinite alternate ease-in-out; /* Faster animation */
+    max-width: 600px; /* Limit the width for larger screens */
+    width: 100%; /* Make it responsive */
 }
 
-.container:hover {
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.7); /* Vibrant blue shadow */
+.banner:hover {
+    background-color: #444444; /* Slightly lighter grey on hover */
+    box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Brighter blue glow on hover */
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 5px;
-}
-
-input, select, textarea {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #555555; /* Dark grey border */
-    border-radius: 4px;
-    background-color: #1a1a1a; /* Brighter black */
-    color: #ffffff; /* White text */
-}
-
-input[type="time"] {
-    color: #ffffff; /* White text */
-    background-color: #1a1a1a; /* Brighter black */
-    border: 1px solid #555555; /* Dark grey border */
-    border-radius: 4px;
-}
-
-input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* Invert colors for the time picker icon */
-}
-
-input[type="time"]::-webkit-datetime-edit {
-    color: #ffffff; /* White text */
-    background-color: #1a1a1a; /* Brighter black */
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: #007bff; /* Vibrant blue border */
-    outline: none;
-    background-color: #1a1a1a; /* Ensure background color stays the same */
-}
-
-button {
-    padding: 10px;
-    background-color: #007bff; /* Vibrant blue */
+.banner a {
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-.hidden {
-    display: none;
-}
-
-#confirmationMessage {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #1a1a1a; /* Brighter black */
-    border: 1px solid #007bff; /* Vibrant blue border */
-    border-radius: 4px;
-    color: #ffffff; /* White text */
-    text-align: center;
-    font-style: italic;
-}
-
-#notificationBar {
-    position: fixed;
-    top: -50px;
-    left: 0;
-    right: 0;
-    background-color: #007bff; /* Vibrant blue */
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2em;
-    transition: top 0.5s ease;
-    z-index: 1000; /* Ensure it is above other elements */
-}
-
-#notificationBar.show {
-    top: 0;
+.banner a:hover {
+    text-decoration: underline;
 }
 
 a {
@@ -125,54 +69,52 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Media Queries for responsiveness */
-@media (max-width: 600px) {
-    .container {
-        width: 90%; /* Make container width responsive */
-        padding: 15px; /* Reduce padding for smaller screens */
+@keyframes moveUpDown {
+    0% {
+        top: 0;
     }
-
-    h2 {
-        font-size: 1.5em; /* Smaller heading for smaller screens */
-    }
-
-    input, select, textarea {
-        font-size: 14px; /* Smaller font size for smaller screens */
-        padding: 8px; /* Smaller padding for smaller screens */
-    }
-
-    button {
-        font-size: 14px; /* Smaller font size for smaller screens */
-        padding: 8px; /* Smaller padding for smaller screens */
-    }
-
-    #notificationBar {
-        font-size: 1em; /* Adjust font size for smaller screens */
-        padding: 8px; /* Adjust padding for smaller screens */
+    100% {
+        top: 20px;
     }
 }
 
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .banner {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .social-icon {
+        font-size: 1.5em; /* Adjust icon size for smaller screens */
+    }
+}
+
+/* Additional adjustments for very small screens (e.g., mobile phones) */
 @media (max-width: 400px) {
-    .container {
+    body {
+        padding: 10px; /* Reduce padding for very small screens */
+    }
+
+    .banner {
+        font-size: 1em; /* Further reduce font size for very small screens */
         padding: 10px; /* Further reduce padding for very small screens */
     }
 
-    h2 {
-        font-size: 1.3em; /* Smaller heading for very small screens */
+    .social-icons {
+        gap: 10px; /* Reduce gap between icons for very small screens */
     }
 
-    input, select, textarea {
-        font-size: 12px; /* Smaller font size for very small screens */
-        padding: 6px; /* Smaller padding for very small screens */
+    .social-icon {
+        font-size: 1.2em; /* Further reduce icon size for very small screens */
     }
 
-    button {
-        font-size: 12px; /* Smaller font size for very small screens */
-        padding: 6px; /* Smaller padding for very small screens */
-    }
-
-    #notificationBar {
-        font-size: 0.9em; /* Adjust font size for very small screens */
-        padding: 6px; /* Adjust padding for very small screens */
+    @keyframes moveUpDown {
+        0% {
+            top: 0;
+        }
+        100% {
+            top: 10px; /* Reduce animation distance for very small screens */
+        }
     }
 }
