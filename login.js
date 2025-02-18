@@ -13,6 +13,7 @@ function showNotificationBar() {
     const notificationBar = document.getElementById('notificationBar');
     notificationBar.classList.remove('hidden');
     notificationBar.classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top smoothly
     setTimeout(() => {
         notificationBar.classList.remove('show');
         notificationBar.classList.add('hidden');
