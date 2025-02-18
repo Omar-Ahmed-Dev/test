@@ -10,7 +10,6 @@ body {
     flex-direction: column;
     position: relative;
     padding: 20px; /* Add padding for smaller screens */
-    overflow: hidden; /* Prevent horizontal scrolling */
 }
 
 .social-icons {
