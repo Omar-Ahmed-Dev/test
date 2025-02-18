@@ -9,6 +9,7 @@ body {
     margin: 0;
     flex-direction: column;
     position: relative;
+    padding: 20px; /* Add padding for smaller screens */
 }
 
 .social-icons {
@@ -40,6 +41,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Vibrant blue glow */
     position: relative;
     animation: moveUpDown 1s infinite alternate ease-in-out; /* Faster animation */
+    max-width: 600px; /* Limit the width for larger screens */
+    width: 100%; /* Make it responsive */
 }
 
 .banner:hover {
@@ -72,5 +75,17 @@ a:hover {
     }
     100% {
         top: 20px;
+    }
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .banner {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .social-icon {
+        font-size: 1.5em; /* Adjust icon size for smaller screens */
     }
 }
