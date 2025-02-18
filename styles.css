@@ -108,6 +108,7 @@ button:hover {
     padding: 10px;
     font-size: 1.2em;
     transition: top 0.5s ease;
+    z-index: 1000; /* Ensure it is above other elements */
 }
 
 #notificationBar.show {
@@ -144,6 +145,11 @@ a:hover {
         font-size: 14px; /* Smaller font size for smaller screens */
         padding: 8px; /* Smaller padding for smaller screens */
     }
+
+    #notificationBar {
+        font-size: 1em; /* Adjust font size for smaller screens */
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
 }
 
 @media (max-width: 400px) {
@@ -163,5 +169,10 @@ a:hover {
     button {
         font-size: 12px; /* Smaller font size for very small screens */
         padding: 6px; /* Smaller padding for very small screens */
+    }
+
+    #notificationBar {
+        font-size: 0.9em; /* Adjust font size for very small screens */
+        padding: 6px; /* Adjust padding for very small screens */
     }
 }

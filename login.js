@@ -5,19 +5,8 @@ function validateForm(event) {
         alert('Passwords do not match. Please try again.');
         return false;
     }
-    showAfterRegistrationButton(event);
-    return true;
-}
-
-function showAfterRegistrationButton(event) {
-    event.preventDefault();
-    document.getElementById('confirmationMessage').classList.remove('hidden');
-    document.getElementById('afterRegistrationButton').classList.remove('hidden');
     showNotificationBar();
-}
-
-function redirectToAfterRegistration() {
-    window.location.href = 'After registration.html';
+    return false; // Prevent form submission to handle redirection manually
 }
 
 function showNotificationBar() {
@@ -27,5 +16,10 @@ function showNotificationBar() {
     setTimeout(() => {
         notificationBar.classList.remove('show');
         notificationBar.classList.add('hidden');
-    }, 3000); // Hide after 3 seconds
+        redirectToAfterRegistration();
+    }, 3000); // Show notification for 3 seconds before redirecting
+}
+
+function redirectToAfterRegistration() {
+    window.location.href = 'After registration.html';
 }
